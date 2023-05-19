@@ -1,16 +1,13 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 
 export const RequestHabitsWrapper = styled.div`
-  font-family: 'Myriad Pro';
+  font-family: "Myriad Pro";
   font-style: normal;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 32px;
-  background: #ffffff;
-  box-shadow: 0px 1px 1px rgba(59, 83, 105, 0.14),
-    0px 1px 3px rgba(59, 83, 105, 0.12);
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -22,7 +19,7 @@ export const RequestHeaderContent = styled.div`
 
 export const MainHeading = styled.span`
   font-weight: 600;
-  font-size: 16px;
+  font-size: 32px;
   line-height: 150%;
   color: #000000;
   flex: none;
@@ -30,18 +27,20 @@ export const MainHeading = styled.span`
   align-self: stretch;
   flex-grow: 0;
   display: block;
+  padding-bottom: 20px;
 `;
 
 export const SubHeading = styled.span`
   font-weight: 400;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 143%;
-  color: #767676;
+  color: #403C3C;
   flex: none;
   order: 1;
   align-self: stretch;
   flex-grow: 0;
   display: block;
+  padding-bottom: 20px;
 `;
 
 export const RequestBodyContent = styled.div`
@@ -54,3 +53,8 @@ export const RequestBodyContent = styled.div`
   align-self: stretch;
   flex-grow: 0;
 `;
+
+export const ButtonWrapper = styled.div`
+margin:auto;
+display:block;
+`

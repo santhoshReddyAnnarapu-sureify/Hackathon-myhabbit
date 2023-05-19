@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import React from "react";
 
 import {
@@ -5,9 +6,12 @@ import {
   RequestHeaderContent,
   RequestHabitsWrapper,
   SubHeading,
-} from "./IntroductionScreen.styles";
+  ButtonWrapper,
+} from "./HabitsOnboardingScreen.styles";
 
-const IntroductionScreen = () => {
+const IntroductionScreen = (props) => {
+  var currentPage = props.page;
+
   return (
     <RequestHabitsWrapper>
       <RequestHeaderContent>
@@ -17,6 +21,17 @@ const IntroductionScreen = () => {
           achieve your goals!
         </SubHeading>
       </RequestHeaderContent>
+      <ButtonWrapper style={{ margin: "auto", display: "block" }}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => {
+            props.setPage(++currentPage);
+          }}
+        >
+          Let's Get Started
+        </Button>
+      </ButtonWrapper>
     </RequestHabitsWrapper>
   );
 };
