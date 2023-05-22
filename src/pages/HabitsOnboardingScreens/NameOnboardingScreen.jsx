@@ -45,6 +45,9 @@ const NameOnboardingScreen = (props) => {
             color="primary"
             onClick={() => {
               props.setPage(++currentPage);
+              //props.setName(name);
+              
+
             }}
           >
             Next
