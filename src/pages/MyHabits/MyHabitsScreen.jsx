@@ -7,22 +7,23 @@ import AgeOnboardingScreen from "../HabitsOnboardingScreens/AgeOnboardingScreen"
 import DescribesYouScreen from "../HabitsOnboardingScreens/DescribesYouScreen";
 import FndDescribesYouScreen from "../HabitsOnboardingScreens/FndDescribesYouScreen";
 import FreeTimeActivityScreen from "../HabitsOnboardingScreens/FreeTimeActivityScreen";
+import useDeviceDetect from "../../utils/deviceDetector";
 
 import LinearProgress from "@mui/material/LinearProgress";
 import MotivatesYouScreen from "../HabitsOnboardingScreens/MotivatesScreen";
 
 function MyHabitsScreen() {
-  const [isOpen, setIsOpen] = useState(true);
+  const { isMobile } = useDeviceDetect();
+  const [openDialogStatus, setOpenDialogStatus] = useState(false);
   const [page, setPage] = useState(1);
-  const [name, setName] = useState("");
 
-  const progress = (page / 4) * 100;
+  const progress = (page / 9) * 100;
   const openDialog = () => {
-    setIsOpen(true);
+    setOpenDialogStatus(true);
   };
 
   const closeDialog = () => {
-    setIsOpen(false);
+    setOpenDialogStatus(false);
   };
 
   const renderHabitsPageContent = (page) => {
@@ -48,7 +49,7 @@ function MyHabitsScreen() {
       case 9:
         return (
           <div>
-            <h1>Welcome</h1>
+            <h1>Done</h1>
           </div>
         );
 
@@ -63,19 +64,19 @@ function MyHabitsScreen() {
 
   return (
     <div>
-      {/* <button onClick={openDialog}>Open Dialog</button> */}
+      <button onClick={openDialog}>Open Dialog</button>
       <ReactModal
         style={{
           content: {
-            height: "70%",
-            width: "50%",
+            height: "40%",
+            width: "40%",
             margin: "auto",
             borderRadius: "5px",
             padding: "auto",
           },
           overlay: {},
         }}
-        isOpen={isOpen}
+        isOpen={openDialogStatus}
         onRequestClose={closeDialog}
         shouldCloseOnOverlayClick={false}
       >
@@ -85,8 +86,8 @@ function MyHabitsScreen() {
             width: "100%",
             position: "absolute",
             backgroundImage:
-              "url('https://t3.ftcdn.net/jpg/04/51/37/14/360_F_451371442_f38FghggvarCVAASmQ8SPZ52NnSjBkJY.jpg')",
-            filter: "blur(6px)",
+              "url('https://smallbusinessify.com/wp-content/uploads/2021/07/How-To-Start-Good-Habits.jpg')",
+            filter: "blur(8px)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -102,6 +103,7 @@ function MyHabitsScreen() {
           <div style={{ justifyContent: "center", alignItems: "center" }}>
             {renderHabitsPageContent(page)}
           </div>
+          <button onClick={closeDialog}>close Dialog</button>
         </div>
       </ReactModal>
     </div>
